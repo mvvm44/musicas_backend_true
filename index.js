@@ -56,7 +56,7 @@ export default app
 app.delete("/apagar/:id", (request, response) => {
     const { id } = request.params
 
-    const comandoDelete = "DELETE FROM musicas_seunome WHERE id = ?"
+    const comandoDelete = "DELETE FROM musicas_marcosVinicius WHERE id = ?"
 
     sql.query(comandoDelete, [id], (error) => {
         if (error) {
