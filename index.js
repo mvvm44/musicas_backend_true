@@ -35,7 +35,7 @@ app.get("/", (request, response) => {
  app.post("/cadastrar", (request, response) => {
     const { titulo, artista, genero, ano, duracao } = request.body
 
-    const comandoInsert = "INSERT INTO musicas_seunome(titulo, artista, genero, ano, duracao) VALUES (?, ?, ?, ?, ?)"
+    const comandoInsert = "INSERT INTO musicas_marcos(titulo, artista, genero, ano, duracao) VALUES (?, ?, ?, ?, ?)"
 
     sql.query(comandoInsert, [titulo, artista, genero, ano, duracao], (error) => {
         if (error) {
@@ -56,7 +56,7 @@ export default app
 app.delete("/apagar/:id", (request, response) => {
     const { id } = request.params
 
-    const comandoDelete = "DELETE FROM musicas_marcosVinicius WHERE id = ?"
+    const comandoDelete = "DELETE FROM musicas_marcos WHERE id = ?"
 
     sql.query(comandoDelete, [id], (error) => {
         if (error) {
@@ -72,7 +72,7 @@ app.put("/editar/:id", (request, response) => {
     const { id } = request.params
     const { titulo, artista, genero, ano, duracao } = request.body
 
-    const comandoUpdate = "UPDATE musicas_seunome SET titulo = ?, artista = ?, genero = ?, ano = ?, duracao = ? WHERE id = ?"
+    const comandoUpdate = "UPDATE musicas_marcos SET titulo = ?, artista = ?, genero = ?, ano = ?, duracao = ? WHERE id = ?"
 
     sql.query(comandoUpdate, [titulo, artista, genero, ano, duracao, id], (error) => {
         if (error) {
